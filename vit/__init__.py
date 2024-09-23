@@ -179,7 +179,7 @@ class DataVito():
         self.Data = requests.get(url, data=subject)
     def load(self, url:"str", subject:"str") -> object:
         model = LinearRegression()
-        class Surface(object):
+        class RESULT_DATA(object):
             def __init__(self):
                 self.Data = requests.get(url, data=subject)
                 model.fit(accuracy_score(self.Data), accuracy_score(Text.urltext(url, subject)))
@@ -189,11 +189,11 @@ class DataVito():
                 for old, new in self.Data.links.items:
                     self.Data.new_text = self.Data.text.replace(old, new)
                 model.fit(model.score(np.array([[self.Data.encode]]), np.array([[self.Data.decode]])), accuracy_score(np.array([self.Data.new_text])))
-                self.predict = model.predict(np.array([[accuracy_score(self.Data.text)], [accuracy_score(coding(self.Data.text))]]))
+                self.predict_ = model.predict(np.array([[accuracy_score(self.Data.text)], [accuracy_score(coding(self.Data.text))]]))
                 return re.findall(r'b/w+/b', self.predict)
             def _predict(self):
-                return self.predict
-        return Surface
+                return self.predict_
+        return RESULT_DATA
         del model
 
 class TiCV(_object):
@@ -215,3 +215,5 @@ class TiCV(_object):
 
     CLOSE = cv2.destroyWindow
     CLOSEALL = cv2.destroyAllWindows
+# TiCV.CLOSE()
+# TiCV.CLOSEALL()
